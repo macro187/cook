@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -eu
+cook=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd -P)
+
+
+. $cook/types/dotnet.sh
+
+
+test -n "$(find_sln)"

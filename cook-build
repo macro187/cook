@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -eu
+cook=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)
+
+
+type="$($cook/types/detect)"
+test -n "$type" || exit
+
+
+$cook/types/build-$type
