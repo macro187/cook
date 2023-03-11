@@ -3,7 +3,7 @@ set -eu
 cook=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)
 
 
-type="$($cook/types/detect)"
+type="$($cook/lib/detect-type)"
 test -n "$type" || exit
 
 

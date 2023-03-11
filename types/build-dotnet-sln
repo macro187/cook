@@ -3,7 +3,7 @@ set -eu
 cook=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd -P)
 
 
-. $cook/types/dotnet.sh
+. $cook/lib/dotnet.sh
 
 
 sln="$(find_sln)"
