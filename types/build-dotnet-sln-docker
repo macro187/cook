@@ -6,12 +6,19 @@ cook=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd -P)
 . $cook/lib/sh.sh
 
 
+hostdir="$(pwd)"
+hostdirname="${hostdir##*/}"
+
+
+$cook/lib/build-cook-dotnet-sdk-container
+
+
 echo_on
 docker run \
     --rm \
     -v $cook:/cook \
-    -v $(pwd):/app \
-    -w /app \
-    mcr.microsoft.com/dotnet/sdk:7.0 \
+    -v $hostdir:/workspaces/$hostdirname \
+    -w /workspaces/$hostdirname \
+    cook-dotnet-sdk \
     /cook/types/build-dotnet-sln $@
 echo_off
