@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+set -eu
+cook=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd -P)
+
+
+. $cook/lib/dotnet.sh
+
+
+which docker &> /dev/null || exit 1
+test -n "$(find_sln)"

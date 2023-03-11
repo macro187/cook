@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+set -eu
+cook=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd -P)
+
+
+. $cook/lib/sh.sh
+
+
+echo_on
+docker run \
+    --rm \
+    -v $cook:/cook \
+    -v $(pwd):/app \
+    -w /app \
+    mcr.microsoft.com/dotnet/sdk:7.0 \
+    /cook/types/build-dotnet-sln $@
+echo_off
