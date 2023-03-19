@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+set -eu
+cook=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd -P)
+
+
+. $cook/lib/sh.sh
+
+
+hostdir="$(pwd)"
+hostdirname="${hostdir##*/}"
+
+
+echo_on
+hotbox-run \
+    --volume $cook:/cook \
+    alpine-dotnet-build build-XXX \
+    /cook/types/build-dotnet-sln
+echo_off

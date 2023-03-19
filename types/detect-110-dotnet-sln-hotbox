@@ -6,5 +6,5 @@ cook=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd -P)
 . $cook/lib/dotnet.sh
 
 
-which docker 2>&1 > /dev/null || exit 1
+which hotbox 2>&1 > /dev/null || exit 1
 test -n "$(find_sln)"
