@@ -11,8 +11,9 @@ hostdirname="${hostdir##*/}"
 
 
 echo_on
-hotbox-run \
+hotbox \
     --volume $cook:/cook \
     alpine-dotnet-build build-XXX \
+    -- \
     /cook/types/build-dotnet-sln
 echo_off
