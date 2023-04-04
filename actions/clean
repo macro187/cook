@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+set -eu
+cook=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd -P)
+
+
+type="$($cook/lib/detect-type)"
+test -n "$type" || exit
+
+
+$cook/actions/clean-$type

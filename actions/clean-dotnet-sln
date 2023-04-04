@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+set -eu
+cook=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd -P)
+
+
+. $cook/lib/sh.sh
+. $cook/lib/dotnet.sh
+
+
+sln="$(find_sln)"
+
+
+echo_on
+dotnet clean $sln
+echo_off
