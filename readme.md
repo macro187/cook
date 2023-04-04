@@ -5,19 +5,22 @@ Build all kinds of stuff.
 
 
 
-Commands
+Synopsis
 ========
 
-cook
-----
+```
+cook [<action>]
+```
 
-Synonym for `cook-build`.
 
 
-cook-build
-----------
+Options
+=======
 
-Try to build the project in the current directory.
+```
+<action>
+    The action to perform.  Default "build".
+```
 
 
 

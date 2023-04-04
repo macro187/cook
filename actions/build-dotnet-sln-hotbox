@@ -15,5 +15,5 @@ hotbox \
     --volume $cook:/cook \
     alpine-dotnet-build build-XXX \
     -- \
-    /cook/types/build-dotnet-sln
+    /cook/actions/build-dotnet-sln
 echo_off

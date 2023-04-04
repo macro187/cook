@@ -10,6 +10,12 @@ info() {
 }
 
 
+die() {
+    info "Error:" $@
+    exit 1
+}
+
+
 heading() {
     info
     info "==> $1"

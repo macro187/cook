@@ -1,4 +1,4 @@
-test -n "${__types_dotnet:+x}" && return ; __types_dotnet=1
+test -n "${__dotnet:+x}" && return ; __dotnet=1
 
 
 find_sln() {

@@ -3,5 +3,12 @@ set -eu
 cook=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)
 
 
-$cook/cook-build
+. $cook/lib/sh.sh
+
+
+action=${1:-build}
+test -f $cook/actions/$action || die "Don't know how to $action"
+
+
+$cook/actions/$action
 
