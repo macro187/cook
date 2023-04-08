@@ -9,7 +9,7 @@ Synopsis
 ========
 
 ```
-cook [<action>]
+cook [<action>...]
 ```
 
 
@@ -19,7 +19,9 @@ Options
 
 ```
 <action>
-    The action to perform.  Default "build".
+    The action(s) to perform.  Default "build".
+
+    Multiple actions are performed in the specified sequence.
 ```
 
 

@@ -6,9 +6,16 @@ cook=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)
 . $cook/lib/sh.sh
 
 
-action=${1:-build}
-test -f $cook/actions/$action || die "Don't know how to $action"
+if [ $# -eq 0 ]; then
+    set -- build
+fi
 
 
-$cook/actions/$action
+for action in $@ ; do
+    test -f $cook/actions/$action || die "Don't know how to $action"
+done
 
+
+for action in $@ ; do
+    $cook/actions/$action
+done
