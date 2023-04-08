@@ -3,20 +3,6 @@ set -eu
 cook=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd -P)
 
 
-. $cook/lib/sh.sh
-
-
-action="restore"
-type="dotnet-sln"
-
-
-hostdir="$(pwd)"
-hostdirname="${hostdir##*/}"
-
-
-echo_on
-hotbox \
-    alpine-dotnet-builder build-$hostdirname \
-    -- \
-    /cook/actions/$action-$type
-echo_off
+hotbox="alpine-dotnet-builder"
+action="restore-dotnet-sln"
+. $cook/actions/_hotbox.sh
