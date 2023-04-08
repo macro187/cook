@@ -3,10 +3,4 @@ set -eu
 cook=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd -P)
 
 
-type="$($cook/lib/detect-type)"
-test -n "$type" || exit
-
-
-action="test"
-test -f $cook/actions/$action-$type || exit
-$cook/actions/$action-$type
+. $cook/actions/_generic.sh
