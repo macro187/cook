@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+set -eu
+cook=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd -P)
+
+
+. $cook/lib/sh.sh
+. $cook/lib/dotnet.sh
+
+
+echo_on
+dotnet test --no-restore --no-build --logger "console;verbosity=detailed"
+echo_off
