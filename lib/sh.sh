@@ -38,3 +38,10 @@ current_gid() {
     test -n "${__current_gid:+x}" || __current_gid="$(id -g)"
     echo $__current_gid
 }
+
+
+lsdirs() {
+    for path in $(find . -mindepth 1 -maxdepth 1 -type d) ; do
+        echo "${path#./}"
+    done
+}

@@ -16,6 +16,30 @@ for action in $@ ; do
 done
 
 
-for action in $@ ; do
-    $cook/actions/$action
-done
+cook_normal() {
+    for action in $@ ; do
+        $cook/actions/$action
+    done
+}
+
+
+cook_workspace() {
+    for dir in $(lsdirs) ; do
+        test -d $dir/.git || continue
+        cd $dir
+
+        heading "$dir/"
+        echo_on
+        $cook/cook $@
+        echo_off
+
+        cd $OLDPWD
+    done
+}
+
+
+if [ ! -d .git ] && ls */.git &> /dev/null ; then
+    cook_workspace $@
+else
+    cook_normal $@
+fi
