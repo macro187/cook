@@ -11,5 +11,5 @@ sln="$(find_sln)"
 
 
 echo_on
-dotnet clean $sln
+dotnet clean $sln --verbosity minimal
 echo_off
