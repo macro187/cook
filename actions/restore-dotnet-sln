@@ -11,5 +11,5 @@ sln="$(find_sln)"
 
 
 echo_on
-dotnet build $sln --verbosity normal --no-restore
+dotnet restore $sln --verbosity normal
 echo_off
