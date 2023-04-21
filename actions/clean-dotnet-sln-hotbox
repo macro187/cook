@@ -3,6 +3,7 @@ set -eu
 cook=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd -P)
 
 
-hotbox="alpine-dotnet-builder"
+default_hotbox="alpine-dotnet-builder"
+custom_hotbox_patterns="*-cleaner *-builder"
 action="clean-dotnet-sln"
 . $cook/actions/_hotbox.sh

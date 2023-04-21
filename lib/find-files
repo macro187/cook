@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+set -eu
+cook=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd -P)
+
+
+location="${1:?expected <location>}"
+pattern="${2:?expected <pattern>}"
+
+
+test -d $location || exit 0
+cd $location
+
+
+find . ! -name . -prune -name "$pattern" -type f -exec basename {} \;
