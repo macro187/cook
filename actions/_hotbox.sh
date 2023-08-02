@@ -8,6 +8,7 @@ action="${action:?action not specified}"
 
 hostdir="$(pwd)"
 hostdirname="${hostdir##*/}"
+parentdir="$(cd $hostdir/.. && pwd)"
 
 
 for pattern in $custom_hotbox_patterns ; do
@@ -25,7 +26,11 @@ hotbox="${custom_hotbox:-$default_hotbox}"
 heading "Running $action in $hotbox hotbox"
 echo_on
 hotbox \
+    --source $cook/hotbox \
     --source .cook \
+    --volume $cook:/cook \
+    --volume $parentdir:/workspace \
+    --workdir /workspace/$hostdirname \
     $hotbox \
     $hostdirname-$action \
     -- \
